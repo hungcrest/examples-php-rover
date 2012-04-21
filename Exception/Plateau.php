@@ -11,5 +11,5 @@ require_once 'Exception/Rover.php';
  */
 class Exception_Plateau extends Exception_Rover
 {
-	 
+     
 }

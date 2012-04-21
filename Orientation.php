@@ -11,12 +11,12 @@
  */
 class Orientation
 {
-	const North = 'N';
-	const South = 'S';
-	const East	= 'E';
-	const West  = 'W';
+    const North = 'N';
+    const South = 'S';
+    const East  = 'E';
+    const West  = 'W';
 
-  	// ensures that this class acts like an enum
-  	// and that it cannot be instantiated
-  	private function __construct() {}	
+    // ensures that this class acts like an enum
+    // and that it cannot be instantiated
+    private function __construct() {}   
 }

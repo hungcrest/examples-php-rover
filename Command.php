@@ -11,11 +11,11 @@
  */
 class Command
 {
-	const Left 	= 'L';
-	const Right = 'R';
-	const Move 	= 'M';
+    const Left  = 'L';
+    const Right = 'R';
+    const Move  = 'M';
 
-  	// ensures that this class acts like an enum
-  	// and that it cannot be instantiated
-  	private function __construct() {}	
+    // ensures that this class acts like an enum
+    // and that it cannot be instantiated
+    private function __construct() {}   
 }

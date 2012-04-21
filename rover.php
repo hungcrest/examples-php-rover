@@ -26,44 +26,44 @@ require_once 'Robot.php';
 $lines = file('input.txt');
 
 foreach ($lines as $l) {
-	// This is a gotcha!
-	// Don't forget to strips '\n' & '\r' especially at the end of the line
-	$line = trim($l);
-	
-	// skip blank lines
-	if ($line == '') {
-		continue;
-	}
-	
-	$elm = explode(" ", $line);
+    // This is a gotcha!
+    // Don't forget to strips '\n' & '\r' especially at the end of the line
+    $line = trim($l);
+    
+    // skip blank lines
+    if ($line == '') {
+        continue;
+    }
+    
+    $elm = explode(" ", $line);
 
-	try {
-		// handle the plateau's dimension
-		if (count($elm) == 2) {
-			// instance the singleton plateau
-			$plateau = Plateau::getInstance($elm[0], $elm[1]);
-		} 
-		// handle the rover's position
-		else if (count($elm) == 3) {
-			$bSkip = false;
-			$robot = new Robot($elm[0], $elm[1], $elm[2]);
-		} 
-		// handle the rover's commands
-		else if (!$bSkip) {			
-			echo $robot->explore($line) . "\n";
-		}
-	} catch (Exception_Plateau $e) {
-		print($e);
-		
-		// fix error before we can continue
-		break;
-	} catch (Exception_Robot $e) {
-		print($e);
+    try {
+        // handle the plateau's dimension
+        if (count($elm) == 2) {
+            // instance the singleton plateau
+            $plateau = Plateau::getInstance($elm[0], $elm[1]);
+        } 
+        // handle the rover's position
+        else if (count($elm) == 3) {
+            $bSkip = false;
+            $robot = new Robot($elm[0], $elm[1], $elm[2]);
+        } 
+        // handle the rover's commands
+        else if (!$bSkip) {         
+            echo $robot->explore($line) . "\n";
+        }
+    } catch (Exception_Plateau $e) {
+        print($e);
+        
+        // fix error before we can continue
+        break;
+    } catch (Exception_Robot $e) {
+        print($e);
 
-		// skip next input line; this rover's commands
-		$bSkip = true;
-	} catch (Exception_Command $e) {
-		print($e);
-	}
+        // skip next input line; this rover's commands
+        $bSkip = true;
+    } catch (Exception_Command $e) {
+        print($e);
+    }
 }
 ?>

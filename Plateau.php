@@ -13,23 +13,23 @@ require_once 'Exception/Plateau.php';
  */
 class Plateau
 {
-	const LowerX = 0;
-	const LowerY = 0;
-	
-	private $_upperX = 0;
-	private $_upperY = 0;
-	private static $_instance = null;
-	
-	/**
-	 * Constructor 
-	 * 
-	 * @param $aUpperX
-	 * @param $aUpperY
-	 */
-	private function __construct($aUpperX, $aUpperY)
+    const LowerX = 0;
+    const LowerY = 0;
+    
+    private $_upperX = 0;
+    private $_upperY = 0;
+    private static $_instance = null;
+    
+    /**
+     * Constructor 
+     * 
+     * @param $aUpperX
+     * @param $aUpperY
+     */
+    private function __construct($aUpperX, $aUpperY)
     {
-    	$this->_upperX = $aUpperX;
-    	$this->_upperY = $aUpperY;
+        $this->_upperX = $aUpperX;
+        $this->_upperY = $aUpperY;
     }
     
     /**
@@ -40,9 +40,9 @@ class Plateau
      */
     private static function _validate($aUpperX, $aUpperY)
     {
-    	if ($aUpperX < 0 || $aUpperY < 0) {
-    		throw new Exception_Plateau("The plateau's (x,y) coordinates of ({$aUpperX},{$aUpperY}) must be >= (0,0)");
-    	}
+        if ($aUpperX < 0 || $aUpperY < 0) {
+            throw new Exception_Plateau("The plateau's (x,y) coordinates of ({$aUpperX},{$aUpperY}) must be >= (0,0)");
+        }
     }
     
     /**
@@ -54,13 +54,13 @@ class Plateau
      */
     public static function getInstance($aUpperX = 0, $aUpperY = 0)
     {
-    	self::_validate($aUpperX, $aUpperY);
-    	
-    	if (self::$_instance === null) {
-    		self::$_instance = new self($aUpperX, $aUpperY);
-    	}
-    	
-    	return self::$_instance;
+        self::_validate($aUpperX, $aUpperY);
+        
+        if (self::$_instance === null) {
+            self::$_instance = new self($aUpperX, $aUpperY);
+        }
+        
+        return self::$_instance;
     }
     
     /**
@@ -71,7 +71,7 @@ class Plateau
      */
     public function isOnUpperX($aX) 
     {
-    	return $aX == $this->_upperX ? true : false;
+        return $aX == $this->_upperX ? true : false;
     }
     
     /**
@@ -82,7 +82,7 @@ class Plateau
      */
     public function isOnUpperY($aY)
     {
-    	return $aY == $this->_upperY ? true : false;
+        return $aY == $this->_upperY ? true : false;
     }
     
     /**
@@ -93,7 +93,7 @@ class Plateau
      */
     public function isOnLowerX($aX) 
     {
-    	return $aX == self::LowerX ? true : false;
+        return $aX == self::LowerX ? true : false;
     }
     
     /**
@@ -104,7 +104,7 @@ class Plateau
      */
     public function isOnLowerY($aY)
     {
-    	return $aY == self::LowerY ? true : false;
+        return $aY == self::LowerY ? true : false;
     }    
   
 }
